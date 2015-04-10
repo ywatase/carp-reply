@@ -29,6 +29,7 @@ sub new {
     my $self = $class->SUPER::new(@_);
     $self->{stacktrace} = Devel::StackTrace::WithLexicals->new(
         ignore_class => ['Reply', 'Carp::Reply', __PACKAGE__],
+        unsafe_ref_capture => 1,
     );
     $self->_frame_index(0);
 
